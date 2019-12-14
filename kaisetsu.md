@@ -15,6 +15,7 @@
       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: sL
     100    15  100    15    0     0    126      0 --:--:-- --:--:-- --:--:--   405
     + 404: Not Found
+    bash: line 1: 404:: command not found
 
 ### 中身
 
@@ -30,7 +31,6 @@
 ### 中身
 
 * `maim.sh`を呼び出します。
-* curlのオプションが間違えていますが、それは些細なことです。
 
 以下がコードです。
 
@@ -39,6 +39,9 @@
 
     curl sL "https://raw.githubusercontent.com/Moffu360/kusokoudo-1/master/maim.sh" | bash -x
 
+本来、意図しているアウトプットは以下の一行のみですが、オプションを間違えている（`-sL`→`sL`）ため、**sL**というファイルとURLの2つを取得しようとするcurlログが表示されてしまいます。
+
+    + bash: line 1: 404:: command not found
 
 ## maim.sh
 
